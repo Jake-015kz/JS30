@@ -5,11 +5,11 @@
 		<title>JS + CSS Clock</title>
 		<link rel="icon" href="https://fav.farm/🔥" />
 		<link href="https://fonts.googleapis.com/css?family=Monda:400,700" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="./02 - Javascript and CSS Clock/css/style.css" />
+        <link rel="stylesheet" href="./css/style.css" />
 	</head>
 
 	<body>
-        <h1>Текущая дата</h1>
+		
         <p id="current-date"></p>
 		<div class="clock">
 			<div class="clock-face">
@@ -19,7 +19,7 @@
 				<div class="point"></div>
 			</div>
 			<span class="number">1</span>
-			<span class="number">2</span>
+			<span class="number">2</span>	
 			<span class="number">3</span>
 			<span class="number">4</span>
 			<span class="number">5</span>
@@ -38,11 +38,14 @@
 			<span class="colon">:</span>
 			<span class="second"></span>
 		</div>
-
-		<audio src="./02 - Javascript and CSS Clock/sounds/tic-tok.mp3"></audio>
+		<div class="box-sound">
+			<button class="start-sound">Запустить звук часов</button>
+			<button class="stop-sound">Остановить звук часов</button>
+		</div>
+		<audio src="./sounds/tic-tok.mp3"></audio>
 
 	
 
-        <script src="./02 - Javascript and CSS Clock/js/script.js"></script>
+        <script src="./js/script.js"></script>
 	</body>
 </html>

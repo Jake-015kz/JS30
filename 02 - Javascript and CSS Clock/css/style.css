@@ -5,16 +5,11 @@
     --main-bg-color: #1e1f26;
     --main-text-color: #cccccc;
 }
-h1 {
-    padding: 0;
-    margin: 0;
-    font-size: 5rem;
-}
+
 html {
     font-family: "helvetica neue", sans-serif;
     font-size: 10px;
     text-align: center;
-
     color: var(--main-text-color);
     background-size: cover;
 }
@@ -67,8 +62,6 @@ body {
     background: black;
     border-radius: 6px;
     transition: transform 0.5s cubic-bezier(0.3, 0.1, 0.4, 0.9);
-
-    /* transition:  transform 0.5s cubic-bezier(.92,-0.26,.84,-0.05) */
 }
 
 .hour-hand {
@@ -131,6 +124,7 @@ body {
     font-family: Monda, Arial, sans-serif;
     font-size: 20px;
     font-weight: 400;
+    margin-bottom: 2rem;
 }
 
 .colon {
@@ -146,4 +140,24 @@ body {
     color: var(--primary);
     border-radius: 5px;
     box-shadow: 0 2px 5px rgb(0 0 0 / 56.8%);
+}
+
+.start-sound,
+.stop-sound {
+    display: inline;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    margin: 0 5px;
+    font-weight: bold;
+    color: var(--main-text-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 56.8%);
+    background: var(--main-bg-color);
+    cursor: pointer;
+    transition: all ease 0.2s;  
+}
+
+.start-sound:hover,
+.stop-sound:hover {
+    color: var(--primary);
 }

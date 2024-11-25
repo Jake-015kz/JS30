@@ -1,21 +1,24 @@
-
+document.addEventListener("DOMContentLoaded", function () {
     const numbers = document.querySelectorAll(".number");
+    const btnSound = document.querySelector(".start-sound");
+    const btnStop = document.querySelector(".stop-sound");
+    const audio = document.querySelector("audio");
 
-    // Function to calculate the position of numbers around the clock face
+    // Функция для вычисления позиции чисел на циферблате
     function calculateNumberPosition(numberIndex, totalNumbers) {
         const angle = (360 / totalNumbers) * numberIndex;
-        const radius = 15; // Adjust the radius to position the numbers closer or farther from the center
-        const centerX = 16; // X-coordinate of the center of the clock
-        const centerY = 16; // Y-coordinate of the center of the clock
+        const radius = 15; // Радиус для позиционирования чисел
+        const centerX = 16; // Центр по оси X
+        const centerY = 16; // Центр по оси Y
 
-        // Calculate the X and Y coordinates based on the angle and radius
+        // Вычисляем X и Y координаты
         const x = centerX + radius * Math.cos((angle - 90) * (Math.PI / 180));
         const y = centerY + radius * Math.sin((angle - 90) * (Math.PI / 180));
 
         return { x, y };
     }
 
-    // Position each number around the clock face using trigonometry
+    // Позиционируем каждое число на циферблате
     for (const [index, number] of numbers.entries()) {
         const position = calculateNumberPosition(index + 1, numbers.length);
         number.style.left = position.x + "rem";
@@ -24,26 +27,19 @@
 
     // ---------------------------------------------------------
     function updateClock() {
-        // Select the clock hands and elements that display hours, minutes, and seconds
         const minuteHand = document.querySelector(".min-hand");
         const secondHand = document.querySelector(".second-hand");
         const hourHand = document.querySelector(".hour-hand");
-        // Get the current time components: minutes, seconds, and hours
+
         let currentMinute = new Date().getMinutes();
         let currentSeconds = new Date().getSeconds();
         let currentHour = new Date().getHours();
-        currentHour = currentHour % 12 || 12; // Convert to 12-hour format
+        currentHour = currentHour % 12 || 12; // Преобразуем в 12-часовой формат
 
-        // Update the position of the hours hand
         hourHand.style.transform = `rotate(${currentHour * (360 / 12) + currentMinute / 2 + 90}deg)`;
-
-        // Update the position of the minute hand
         minuteHand.style.transform = `rotate(${currentMinute * (360 / 60) + 90}deg)`;
-
-        // Update the position of the second hand
         secondHand.style.transform = `rotate(${currentSeconds * (360 / 60) + 90}deg)`;
 
-        // Update the text content of display span
         const hourSpan = document.querySelector(".hour");
         const minuteSpan = document.querySelector(".minute");
         const secondSpan = document.querySelector(".second");
@@ -57,52 +53,57 @@
         secondSpan.textContent = seconds;
     }
 
-    const audio = document.querySelector("audio");
-
-    // Function to play the clock sound
+    // Функция для воспроизведения звука
     function clockSound() {
         if (audio) {
-            audio.currentTime = 0;
-            audio.play();
+            audio.currentTime = 0;  // Сбросить аудио до начала
+            audio.play();           // Воспроизвести звук
         }
     }
 
-    // Call the clockSound function initially when the window loads
-    window.addEventListener("load", function () {
-        updateClock();
+    // Добавляем обработчик события, чтобы при завершении воспроизведения звук начинался заново
+    if (audio) {
+        audio.addEventListener("ended", function () {
+            clockSound();  // Повторно воспроизвести звук, когда он заканчивается
+        });
+    }
 
-        // Play sound initially
-        clockSound();
+    // Вызов функции для обновления времени
+    updateClock();
 
-        // Play sound again when the audio ends
-        audio.addEventListener("ended", clockSound);
+    // Обновляем время каждую секунду
+    setInterval(updateClock, 1000);
 
-        // Update clock every second
-        setInterval(updateClock, 1000);
-    });
-
+    // Отображение текущей даты
     function displayCurrentDate() {
-        // Создаем объект даты
         const now = new Date();
-
-        // Массив с названиями дней недели
         const weekdays = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-
-        // Массив с названиями месяцев
         const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
 
-        // Извлекаем компоненты текущей даты
-        const day = now.getDate();           // День месяца (1-31)
-        const month = now.getMonth();       // Месяц (0-11)
-        const year = now.getFullYear();     // Год (например, 2024)
-        const weekday = now.getDay();       // День недели (0-6)
+        const day = now.getDate();
+        const month = now.getMonth();
+        const year = now.getFullYear();
+        const weekday = now.getDay();
 
-        // Формируем строку с датой в нужном формате
         const dateString = `${weekdays[weekday]}, ${day} ${months[month]} ${year} года`;
-
-        // Находим элемент на странице по id и вставляем дату
         document.getElementById('current-date').textContent = dateString;
     }
 
     // Вызов функции для отображения даты
     displayCurrentDate();
+
+    // Обработчик для кнопки "Play Sound"
+    if (btnSound) {
+        btnSound.addEventListener("click", clockSound);
+    }
+
+    // Обработчик для кнопки "Stop Sound"
+    if (btnStop) {
+        btnStop.addEventListener("click", function () {
+            if (audio) {
+                audio.pause();  // Остановить звук
+                audio.currentTime = 0;  // Сбросить звук на начало
+            }
+        });
+    }
+});
