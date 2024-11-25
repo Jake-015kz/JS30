@@ -1,163 +1,165 @@
 :root {
-    --primary: #fce15d;
-    --secondary-100: #dee4be;
-    --secondary-200: #c1cf9b;
-    --main-bg-color: #1e1f26;
-    --main-text-color: #cccccc;
+  --primary: #fce15d;
+  --secondary-100: #dee4be;
+  --secondary-200: #c1cf9b;
+  --main-bg-color: #1e1f26;
+  --main-text-color: #cccccc;
 }
 
 html {
-    font-family: "helvetica neue", sans-serif;
-    font-size: 10px;
-    text-align: center;
-    color: var(--main-text-color);
-    background-size: cover;
+  font-family: "helvetica neue", sans-serif;
+  font-size: 10px;
+  text-align: center;
+  color: var(--main-text-color);
+  background-size: cover;
 }
 
 #current-date {
-    color: var(--main-text-color);
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 1rem;
+  color: var(--main-text-color);
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 body {
-    position: relative;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    font-size: 2rem;
-    background-color: var(--main-bg-color);
-    transition: all ease 0.2s;
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-size: 2rem;
+  background-color: var(--main-bg-color);
+  transition: all ease 0.2s;
 }
 
 .clock {
-    position: relative;
-    width: 30rem;
-    height: 30rem;
-    margin: 50px auto;
-    padding: 2rem;
-    border: 4px solid var(--main-bg-color);
-    border-radius: 50%;
-    box-shadow: 0 -15px 15px rgb(255 255 255 / 5%), inset 0 -15px 15px rgb(255 255 255 / 5%), 0 15px 15px rgb(0 0 0 / 30%), inset 0 15px 15px rgb(0 0 0 / 30%);
-    transition: all ease 0.2s;
+  position: relative;
+  width: 30rem;
+  height: 30rem;
+  margin: 50px auto;
+  padding: 2rem;
+  border: 4px solid var(--main-bg-color);
+  border-radius: 50%;
+  box-shadow: 0 -15px 15px rgb(255 255 255 / 5%),
+    inset 0 -15px 15px rgb(255 255 255 / 5%), 0 15px 15px rgb(0 0 0 / 30%),
+    inset 0 15px 15px rgb(0 0 0 / 30%);
+  transition: all ease 0.2s;
 }
 
 .clock-face {
-    position: relative;
-    transform: translateY(-3px);
-    width: 100%;
-    height: 100%;
+  position: relative;
+  transform: translateY(-3px);
+  width: 100%;
+  height: 100%;
 }
 
 .hand {
-    position: absolute;
-    top: 50%;
-    transform-origin: right;
-    transform: rotate(90deg);
-    background: black;
-    border-radius: 6px;
-    transition: transform 0.5s cubic-bezier(0.3, 0.1, 0.4, 0.9);
+  position: absolute;
+  top: 50%;
+  transform-origin: right;
+  transform: rotate(90deg);
+  background: black;
+  border-radius: 6px;
+  transition: transform 0.5s cubic-bezier(0.3, 0.1, 0.4, 0.9);
 }
 
 .hour-hand {
-    z-index: 3;
-    left: 23%;
-    width: 8rem;
-    height: 6px;
-    background: var(--secondary-100);
+  z-index: 3;
+  left: 23%;
+  width: 8rem;
+  height: 6px;
+  background: var(--secondary-100);
 }
 
 .min-hand {
-    z-index: 2;
-    left: 10%;
-    width: 12rem;
-    height: 5px;
-    background: var(--secondary-200);
+  z-index: 2;
+  left: 10%;
+  width: 12rem;
+  height: 5px;
+  background: var(--secondary-200);
 }
 
 .second-hand {
-    z-index: 1;
-    left: 10%;
-    width: 12rem;
-    height: 4px;
-    background: var(--primary);
+  z-index: 1;
+  left: 10%;
+  width: 12rem;
+  height: 4px;
+  background: var(--primary);
 }
 
 .number {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    font-size: 2rem;
-    line-height: 20px;
-    color: var(--main-text-color);
-    text-align: center;
-    border-radius: 50%;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 2rem;
+  line-height: 20px;
+  color: var(--main-text-color);
+  text-align: center;
+  border-radius: 50%;
 }
 
 .point {
-    position: absolute;
-    z-index: 4;
-    top: 51%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 0.8rem;
-    height: 0.8rem;
-    padding: 0.2rem;
-    background: var(--primary);
-    border: 3px solid var(--main-bg-color);
-    border-radius: 50%;
+  position: absolute;
+  z-index: 4;
+  top: 51%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.8rem;
+  height: 0.8rem;
+  padding: 0.2rem;
+  background: var(--primary);
+  border: 3px solid var(--main-bg-color);
+  border-radius: 50%;
 }
 
 .time {
-    display: flex;
-    font-size: 2rem;
+  display: flex;
+  font-size: 2rem;
 }
 
 .time span {
-    padding: 7px 8px;
-    font-family: Monda, Arial, sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 2rem;
+  padding: 7px 8px;
+  font-family: Monda, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 2rem;
 }
 
 .colon {
-    color: var(--primary);
+  color: var(--primary);
 }
 
 /* Style the hour, minute, and second spans to give a beautiful appearance */
 .hour,
 .minute,
 .second {
-    padding: 5px 10px;
-    font-weight: bold;
-    color: var(--primary);
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgb(0 0 0 / 56.8%);
+  padding: 5px 10px;
+  font-weight: bold;
+  color: var(--primary);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 56.8%);
 }
 
 .start-sound,
 .stop-sound {
-    display: inline;
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-    margin: 0 5px;
-    font-weight: bold;
-    color: var(--main-text-color);
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgb(0 0 0 / 56.8%);
-    background: var(--main-bg-color);
-    cursor: pointer;
-    transition: all ease 0.2s;  
+  display: inline;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  margin: 0 5px;
+  font-weight: bold;
+  color: var(--main-text-color);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 56.8%);
+  background: var(--main-bg-color);
+  cursor: pointer;
+  transition: all ease 0.2s;
 }
 
 .start-sound:hover,
 .stop-sound:hover {
-    color: var(--primary);
+  color: var(--primary);
 }
