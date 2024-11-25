@@ -43,4 +43,8 @@
 **Евгений Чухрай**  
 Email: zhegan89@gmail.com 
 Telegram: [Ссылка на профиль Telegram](https://t.me/xjekakz)
+<<<<<<< HEAD
 GitHub: [Ваш GitHub-профиль](https://github.com/Jake-015kz)
+=======
+GitHub: [Ваш GitHub-профиль](https://github.com/Jake-015kz)
+>>>>>>> 23664b5 (Fix README)
