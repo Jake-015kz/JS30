@@ -1,0 +1,129 @@
+/* Общие стили */
+:root {
+  --base: #d417b5;
+  --spacing: 10px;
+  --blur: 10px;
+  --input: #e058ca;
+  --scale: 400px;
+  --main-text-color: #fff;
+  --main-bg-color: #000;
+  --border: 4px;
+}
+
+html {
+  position: relative;
+  box-sizing: border-box;
+  background: var(--base);
+  font-family: "helvetica neue";
+  font-size: 20px;
+  font-weight: 200;
+  color: white;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #e60073;
+}
+
+.box {
+  display: flex;
+  align-items: start;
+}
+
+.wrapper-input {
+  background: #00000070;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+img {
+  width: var(--scale);
+  max-width: 1600px;
+  margin-left: var(--spacing);
+  filter: blur(var(--blur));
+  background-color: var(--base);
+  border-radius: var(--border);
+  transition: all 0.2s ease;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 200px;
+  margin: 18px 0;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  border-radius: 10px;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--input) 0%, #fff 100%);
+  border-radius: 20px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 10px;
+  background: var(--input);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: linear-gradient(90deg, var(--input) 0%, #fff 100%);
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  width: 0;
+  height: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border-radius: 5px;
+  border: none;
+}
+
+input[type="color"]::-moz-color-swatch {
+  border-radius: 5px;
+  border: none;
+}
+
+.label-color {
+  width: 100%;
+  color: var(--main-text-color);
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  margin: 0 5px;
+  font-weight: bold;
+  color: var(--main-text-color);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 56.8%);
+  cursor: pointer;
+  transition: all ease 0.2s;
+}

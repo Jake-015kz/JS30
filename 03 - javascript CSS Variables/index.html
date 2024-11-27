@@ -4,11 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Javascript CSS variables</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <h1 class="title">Javascript CSS variables</h1>
+    <div class="box">
+      <div class="controls">
+        <div class="wrapper-input">
+          <label for="spacing">Отступ влево: </label>
+          <input
+            type="range"
+            name="spacing"
+            min="10"
+            max="600"
+            value="10"
+            data-sizing="px"
+            id=""
+          />
+          <br />
+          <label for="blur">Размытие изображения: </label>
+          <input
+            type="range"
+            name="blur"
+            min="0"
+            max="25"
+            value="10"
+            data-sizing="px"
+          />
+          <br />
+          <label for="scale">Увеличение изображения: </label>
+          <input
+            type="range"
+            name="scale"
+            min="400"
+            max="1200"
+            value="200"
+            data-sizing="px"
+          />
+          <label for="border">Скругление углов изображения: </label>
+          <input
+            type="range"
+            name="border"
+            min="0"
+            max="100"
+            value="0"
+            data-sizing="px"
+          />
+          <br />
+          <br />
+          <label class="label-color" for="base">Выбор цвета фона</label>
+          <input type="color" id="base" name="base" value="#d417b5" />
+        </div>
+      </div>
+
+      <img src="./img/ракета.jpeg" alt="ракета" />
+    </div>
+
     <script src="/js/script.js"></script>
   </body>
 </html>
-  
