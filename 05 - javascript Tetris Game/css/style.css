@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  --base-bg: #0e0c0a;
+  --main-color: #f1f1f1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+html {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--base-bg);
+  color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  height: 100svh;
+  user-select: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-template-rows: repeat(20, auto);
+  padding: 0.6vh;
+  gap: 0.3vh;
+  border-radius: 0.6vh;
+  background-color: rgb(13, 4, 58);
+}
+
+.grid div {
+  --cell-size: min(4.5vh, 7.5vw);
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background-color: #010105;
+  border-radius: 0.6vh;
+}
+
+.grid > div.ghost {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.grid > div.i {
+  background-color: #6be1ec;
+}
+
+.grid > div.j {
+  background-color: #5eb0f3;
+}
+
+.grid > div.l {
+  background-color: #f2c35b;
+}
+
+.grid > div.o {
+  background-color: #f7e562;
+}
+
+.grid > div.s {
+  background-color: #7be17b;
+}
+
+.grid > div.z {
+  background-color: #de5c6b;
+}
+
+.grid > div.t {
+  background-color: #b276f3;
+}
+
+.grid > div.i,
+.grid > div.j,
+.grid > div.l,
+.grid > div.o,
+.grid > div.s,
+.grid > div.t,
+.grid > div.z,
+.grid > div.ghost .grid > div.sad {
+  box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 2px rgba(1, 8, 89, 0.2);
+}
+
+.grid > div.sad {
+  background-color: #f2c35b;
+  transition: background-color 0.5s box-shadow 0.5s ease-in-out;
+}
+
+.grid > div.hide {
+  animation: hide 0.5s ease-in-out;
+}
+
+@keyframes hide {
+  0% {
+    transform: scale(0.8) rotate(30deg);
+  }
+  45% {
+    transform: scale(0.8) rotate(-30deg);
+  }
+  90% {
+    transform: scale(1) rotate(0deg);
+  }
+}
